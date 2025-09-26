@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wedding Booking Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #e91e63;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c2185b;
+    }
+
+    .thank-you {
+      text-align: center;
+      font-size: 18px;
+      color: green;
+      margin-top: 20px;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Wedding Booking</h2>
+  <form id="entryForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="village">Village:</label>
+      <input type="text" id="village" name="village" required />
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required />
+    </div>
+
+    <div class="form-group">
+      <label for="items">Items No:</label>
+      <input type="number" id="items" name="items" min="1" required />
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content No:</label>
+      <input type="number" id="content" name="content" min="1" required />
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="thank-you" id="thankYouMessage">
+    🎉 Thank you! Your response has been submitted.
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("entryForm");
+  const thankYouMessage = document.getElementById("thankYouMessage");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent actual form submission
+    form.style.display = "none"; // Hide form
+    thankYouMessage.style.display = "block"; // Show thank you message
+  });
+</script>
+
+</body>
+</html>
